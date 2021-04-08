@@ -41,7 +41,7 @@ import android.net.wifi.WifiEnterpriseConfig;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.SupplicantState;
-import android.net.wifi.WifiNetworkSpecifier;
+// import android.net.wifi.WifiNetworkSpecifier;
 import android.net.ConnectivityManager;
 import android.net.ConnectivityManager.NetworkCallback;
 import android.net.NetworkSpecifier;
@@ -483,17 +483,17 @@ public class WifiWizard2 extends CordovaPlugin {
           }
         };
 
-        WifiNetworkSpecifier.Builder builder = new WifiNetworkSpecifier.Builder();
-        builder.setSsid(newSSID);
-        builder.setWpa2Passphrase(newPass);
+        // WifiNetworkSpecifier.Builder builder = new WifiNetworkSpecifier.Builder();
+        // builder.setSsid(newSSID);
+        // builder.setWpa2Passphrase(newPass);
 
-        WifiNetworkSpecifier wifiNetworkSpecifier = builder.build();
+        // WifiNetworkSpecifier wifiNetworkSpecifier = builder.build();
 
         NetworkRequest.Builder networkRequestBuilder1 = new NetworkRequest.Builder();
         networkRequestBuilder1.addTransportType(NetworkCapabilities.TRANSPORT_WIFI);
         //removeCapability added for hotspots without internet
         networkRequestBuilder1.removeCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
-        networkRequestBuilder1.setNetworkSpecifier(wifiNetworkSpecifier);
+        // networkRequestBuilder1.setNetworkSpecifier(wifiNetworkSpecifier);
 
         NetworkRequest nr = networkRequestBuilder1.build();
         ConnectivityManager cm = (ConnectivityManager) cordova.getActivity().getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
