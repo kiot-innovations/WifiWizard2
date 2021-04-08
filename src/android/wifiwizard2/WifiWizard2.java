@@ -95,6 +95,7 @@ public class WifiWizard2 extends CordovaPlugin {
   private static final String RESET_BIND_ALL = "resetBindAll";
   private static final String SET_BIND_ALL = "setBindAll";
   private static final String GET_WIFI_IP_INFO = "getWifiIPInfo";
+  private static final String OPEN_NATIVE_WIFI_SETTINGS = "openNativeWiFiSettings";
 
 
   
@@ -264,6 +265,8 @@ public class WifiWizard2 extends CordovaPlugin {
       this.resetBindAll(callbackContext);
     } else if (action.equals(SET_BIND_ALL)) {
       this.setBindAll(callbackContext);
+    } else if (action.equals(OPEN_NATIVE_WIFI_SETTINGS)) {
+      this.openWiFiSettings();
     } else {
       callbackContext.error("Incorrect action parameter: " + action);
       // The ONLY time to return FALSE is when action does not exist that was called
@@ -1819,6 +1822,18 @@ public class WifiWizard2 extends CordovaPlugin {
       Log.e(TAG, "InterruptedException error.", e);
       callbackContext.error("ERROR_CANT_BIND_ALL");
     }
+  }
+
+  /**
+   * Will open wifi settings page
+   *
+   */
+  private void openWiFiSettings(CallbackContext callbackContext) {
+    PluginResult.Status status = PluginResult.Status.OK;
+    String result = "";
+    Intent intent = new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS);
+    this.cordova.getActivity().startActivity(intent);
+    callbackContext.sendPluginResult(new PluginResult(status, result));
   }
 
 

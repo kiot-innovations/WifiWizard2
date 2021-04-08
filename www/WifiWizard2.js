@@ -15,6 +15,19 @@
 
 var WifiWizard2 = {
 
+
+    /**
+     * Open Native Wifi seettings Page
+	 * @returns {Promise}
+	 */
+	openNativeWiFiSettings: function () {
+
+        return new Promise(function (resolve, reject) {
+            cordova.exec(resolve, reject, "WifiWizard2", "openNativeWiFiSettings", []);
+        });
+
+    },
+
 	/**
      * Connect to network on iOS device
 	 * @param ssid
