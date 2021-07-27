@@ -266,7 +266,7 @@ public class WifiWizard2 extends CordovaPlugin {
     } else if (action.equals(SET_BIND_ALL)) {
       this.setBindAll(callbackContext);
     } else if (action.equals(OPEN_NATIVE_WIFI_SETTINGS)) {
-      this.openWiFiSettings();
+      this.openWiFiSettings(callbackContext);
     } else {
       callbackContext.error("Incorrect action parameter: " + action);
       // The ONLY time to return FALSE is when action does not exist that was called
